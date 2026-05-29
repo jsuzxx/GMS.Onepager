@@ -4,242 +4,471 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GMS — One Pager</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: #f0f4f8;
-  color: #1a2b3c;
-  font-size: 13px;
-  line-height: 1.45;
-  padding: 24px;
+:root {
+  --bg-deep: #060C18;
+  --bg-card: #0B1628;
+  --bg-card-hover: #0F1E38;
+  --bg-glass: rgba(15, 30, 60, 0.6);
+  --border: rgba(0, 245, 212, 0.08);
+  --border-hover: rgba(0, 245, 212, 0.28);
+  --cyan: #00F5D4;
+  --cyan-dim: rgba(0,245,212,0.12);
+  --cyan-glow: rgba(0,245,212,0.25);
+  --emerald: #10B981;
+  --amber: #F59E0B;
+  --amber-dim: rgba(245,158,11,0.12);
+  --coral: #F43F5E;
+  --coral-dim: rgba(244,63,94,0.12);
+  --blue: #3B82F6;
+  --text-primary: #E8F0FE;
+  --text-secondary: #7B90B2;
+  --text-muted: #4A5F7A;
+  --font-head: 'Syne', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  font-size: 13px;
+  line-height: 1.6;
+  padding: 20px;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0,245,212,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 90% 80%, rgba(16,185,129,0.04) 0%, transparent 50%);
+}
+
 .page {
-  background: #fff;
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
-  border-radius: 12px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 4px 32px rgba(0,0,0,0.1);
+  border: 1px solid var(--border);
+  box-shadow:
+    0 0 0 1px rgba(0,245,212,0.04),
+    0 32px 80px rgba(0,0,0,0.6),
+    0 0 120px rgba(0,245,212,0.04);
+  background: var(--bg-card);
 }
 
 /* ── HEADER ── */
 .header {
-  background: #0A1929;
-  padding: 14px 28px;
+  background: linear-gradient(135deg, #060C18 0%, #091220 100%);
+  padding: 16px 28px;
   display: flex;
   align-items: center;
   gap: 20px;
-  border-bottom: 2px solid #00C9A7;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
 }
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  opacity: 0.4;
+}
+
 .logo-badge {
-  background: #00C9A7;
-  color: #0A1929;
-  font-family: 'Syne', sans-serif;
-  font-size: 18px;
+  background: linear-gradient(135deg, var(--cyan), var(--emerald));
+  color: #060C18;
+  font-family: var(--font-head);
+  font-size: 17px;
   font-weight: 800;
-  padding: 6px 16px;
-  border-radius: 6px;
-  letter-spacing: -0.5px;
+  padding: 7px 16px;
+  border-radius: 10px;
+  letter-spacing: 0.5px;
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-shrink: 0;
+  box-shadow: 0 0 20px rgba(0,245,212,0.3);
 }
-.logo-badge svg { width: 18px; height: 18px; }
+.logo-badge svg { width: 17px; height: 17px; }
+
 .header-meta {
-  color: rgba(244,247,246,0.7);
-  font-size: 12.5px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  letter-spacing: 0.02em;
 }
-.header-meta strong { color: #F4F7F6; }
-.sep { margin: 0 8px; opacity: 0.3; }
+.header-meta strong { color: var(--text-primary); font-weight: 600; }
+.sep { margin: 0 10px; opacity: 0.2; }
 
 /* ── TEAM ROW ── */
 .team-row {
-  background: #f8fafc;
-  border-bottom: 1px solid #e2e8f0;
+  background: rgba(6, 12, 24, 0.6);
+  border-bottom: 1px solid var(--border);
   padding: 14px 28px;
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 0;
+  flex-wrap: wrap;
 }
+
 .team-member {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  padding-right: 28px;
+  margin-right: 28px;
+  border-right: 1px solid var(--border);
 }
+
 .avatar {
-  width: 44px;
-  height: 44px;
+  width: 42px; height: 42px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #00C9A7, #0A1929);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-family: 'Syne', sans-serif;
-  font-size: 14px;
+  background: linear-gradient(135deg, var(--cyan), var(--emerald));
+  display: flex; align-items: center; justify-content: center;
+  color: #060C18;
+  font-family: var(--font-head);
+  font-size: 13px;
   font-weight: 800;
   flex-shrink: 0;
+  box-shadow: 0 0 16px rgba(0,245,212,0.2);
 }
-.member-name { font-weight: 600; font-size: 14px; color: #0A1929; }
-.member-role { font-size: 11px; color: #64748b; }
+.member-name { font-weight: 600; font-size: 13px; color: var(--text-primary); }
+.member-role { font-size: 11px; color: var(--text-secondary); margin-top: 1px; }
+
 .team-stat {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding-left: 24px;
-  border-left: 1px solid #e2e8f0;
+  padding: 0 20px;
+  border-right: 1px solid var(--border);
+  transition: all 0.2s ease;
 }
+.team-stat:last-child { border-right: none; }
+.team-stat:hover .ts-value { color: var(--cyan); }
+
 .team-stat-icon {
-  width: 34px; height: 34px;
+  width: 32px; height: 32px;
   border-radius: 8px;
-  background: rgba(0,201,167,0.1);
+  background: var(--cyan-dim);
+  border: 1px solid rgba(0,245,212,0.15);
   display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
 }
-.team-stat-icon svg { width: 16px; height: 16px; color: #00C9A7; }
-.ts-label { font-size: 11px; color: #64748b; }
-.ts-value { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; color: #0A1929; }
+.team-stat-icon svg { width: 14px; height: 14px; }
+.ts-label { font-size: 10px; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; }
+.ts-value { font-family: var(--font-head); font-size: 14px; font-weight: 700; color: var(--text-primary); transition: color 0.2s; }
 
 /* ── GRID ── */
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto;
-  gap: 0;
 }
-.col { border-right: 1px solid #e2e8f0; }
+
+.col {
+  border-right: 1px solid var(--border);
+}
 .col:last-child { border-right: none; }
 
 .block {
-  padding: 16px 20px;
-  border-bottom: 1px solid #e2e8f0;
+  padding: 20px 22px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.25s ease;
+  position: relative;
 }
 .block:last-child { border-bottom: none; }
+.block:hover {
+  background: rgba(0,245,212,0.025);
+}
+.block:hover::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, var(--cyan), transparent);
+  opacity: 0.5;
+}
 
 .block-title {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-family: 'Syne', sans-serif;
-  font-size: 13px;
+  gap: 9px;
+  font-family: var(--font-head);
+  font-size: 12px;
   font-weight: 700;
-  color: #0A1929;
-  margin-bottom: 10px;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
+
 .icon-box {
   width: 26px; height: 26px;
-  border-radius: 6px;
-  background: #0A1929;
+  border-radius: 7px;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
+  background: rgba(123,144,178,0.15);
+  border: 1px solid rgba(123,144,178,0.2);
 }
-.icon-box.teal { background: #00C9A7; }
-.icon-box.amber { background: #FFB703; }
-.icon-box.alert { background: #E63946; }
-.icon-box svg { width: 13px; height: 13px; }
+.icon-box.teal {
+  background: var(--cyan-dim);
+  border-color: rgba(0,245,212,0.2);
+}
+.icon-box.teal svg { color: var(--cyan); stroke: var(--cyan); }
+.icon-box.amber {
+  background: var(--amber-dim);
+  border-color: rgba(245,158,11,0.2);
+}
+.icon-box.amber svg { stroke: var(--amber); }
+.icon-box.alert {
+  background: var(--coral-dim);
+  border-color: rgba(244,63,94,0.2);
+}
+.icon-box.alert svg { stroke: var(--coral); }
+.icon-box svg { width: 13px; height: 13px; stroke: var(--text-secondary); }
 
-ul { padding-left: 0; list-style: none; }
+ul { list-style: none; }
 ul li {
-  padding: 3px 0 3px 14px;
+  padding: 4px 0 4px 16px;
   position: relative;
-  color: #334155;
+  color: var(--text-secondary);
   font-size: 12px;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 ul li::before {
   content: '';
   position: absolute;
-  left: 0; top: 10px;
-  width: 5px; height: 5px;
+  left: 0; top: 11px;
+  width: 4px; height: 4px;
   border-radius: 50%;
-  background: #00C9A7;
+  background: var(--cyan);
+  opacity: 0.6;
 }
 
 /* ── METRIC CARD ── */
 .metric-row {
   display: flex;
   gap: 8px;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 .metric-card {
   flex: 1;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 6px;
-  padding: 8px 10px;
+  background: rgba(6,12,24,0.8);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  transition: all 0.25s ease;
+  cursor: default;
 }
-.metric-label { font-size: 10px; color: #64748b; font-family: 'JetBrains Mono', monospace; margin-bottom: 2px; }
-.metric-value { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: #0A1929; }
-.metric-sub { font-size: 10px; color: #94a3b8; }
+.metric-card:hover {
+  border-color: var(--border-hover);
+  background: rgba(0,245,212,0.04);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3), 0 0 20px rgba(0,245,212,0.06);
+}
+.metric-label {
+  font-size: 9px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+.metric-value {
+  font-family: var(--font-head);
+  font-size: 20px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--cyan), var(--emerald));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+.metric-sub { font-size: 10px; color: var(--text-muted); margin-top: 2px; }
 
 /* ── FINANCE ── */
 .finance-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 0;
-  border-bottom: 1px solid #f1f5f9;
-  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 7px;
+  margin-bottom: 3px;
+  transition: background 0.2s;
 }
-.finance-row:last-child { border-bottom: none; }
-.finance-year { color: #64748b; }
-.finance-val { font-family: 'JetBrains Mono', monospace; font-weight: 500; color: #0A1929; }
+.finance-row:hover { background: rgba(0,245,212,0.05); }
+.finance-year { color: var(--text-secondary); font-size: 12px; }
+.finance-val {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--cyan);
+}
 
 .tag {
   display: inline-block;
   font-size: 10px;
   padding: 2px 8px;
-  border-radius: 4px;
-  background: rgba(0,201,167,0.1);
-  color: #00957A;
+  border-radius: 5px;
+  background: var(--cyan-dim);
+  color: var(--cyan);
   font-weight: 500;
+  border: 1px solid rgba(0,245,212,0.15);
   margin: 2px 2px 2px 0;
+  font-family: var(--font-mono);
 }
-.tag.amber { background: rgba(255,183,3,0.12); color: #B45309; }
-.tag.dark { background: #0A1929; color: #00C9A7; }
+.tag.amber { background: var(--amber-dim); color: var(--amber); border-color: rgba(245,158,11,0.2); }
+.tag.dark { background: rgba(6,12,24,0.8); color: var(--cyan); border-color: var(--border); }
 
-.funds-bar-wrap { margin-top: 8px; }
-.funds-row { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
-.funds-label { font-size: 11px; color: #64748b; width: 130px; flex-shrink: 0; }
-.funds-track { flex: 1; height: 5px; background: #f1f5f9; border-radius: 99px; }
-.funds-fill { height: 100%; border-radius: 99px; background: #00C9A7; }
-.funds-pct { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #0A1929; width: 30px; text-align: right; }
+/* ── FUNDS BARS ── */
+.funds-bar-wrap { margin-top: 10px; }
+.funds-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 7px;
+}
+.funds-label { font-size: 11px; color: var(--text-secondary); width: 128px; flex-shrink: 0; }
+.funds-track {
+  flex: 1;
+  height: 4px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 99px;
+  overflow: visible;
+  position: relative;
+}
+.funds-fill {
+  height: 100%;
+  border-radius: 99px;
+  position: relative;
+}
+.funds-fill::after {
+  content: '';
+  position: absolute;
+  right: -2px; top: -3px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: inherit;
+  box-shadow: 0 0 8px currentColor;
+  filter: brightness(1.4);
+}
+.funds-fill.c1 {
+  background: linear-gradient(90deg, var(--emerald), var(--cyan));
+  box-shadow: 0 0 10px rgba(0,245,212,0.4);
+}
+.funds-fill.c2 {
+  background: linear-gradient(90deg, #1D4ED8, var(--blue));
+  box-shadow: 0 0 10px rgba(59,130,246,0.4);
+}
+.funds-fill.c3 {
+  background: linear-gradient(90deg, #D97706, var(--amber));
+  box-shadow: 0 0 10px rgba(245,158,11,0.4);
+}
+.funds-fill.c4 {
+  background: linear-gradient(90deg, #BE123C, var(--coral));
+  box-shadow: 0 0 10px rgba(244,63,94,0.4);
+}
+.funds-pct {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-secondary);
+  width: 30px;
+  text-align: right;
+}
 
 /* ── VALIDATION ── */
 .val-item {
   display: flex;
   align-items: flex-start;
-  gap: 8px;
-  padding: 5px 0;
-  border-bottom: 1px solid #f1f5f9;
+  gap: 9px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
   font-size: 12px;
-  color: #334155;
+  color: var(--text-secondary);
+  transition: color 0.2s;
 }
+.val-item:hover { color: var(--text-primary); }
+.val-item:last-child { border-bottom: none; }
+
 .val-check {
   width: 16px; height: 16px;
   border-radius: 50%;
-  background: rgba(0,201,167,0.15);
-  border: 1px solid #00C9A7;
+  background: var(--cyan-dim);
+  border: 1px solid rgba(0,245,212,0.3);
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
   margin-top: 1px;
-  font-size: 9px;
-  color: #00957A;
+  font-size: 8px;
+  color: var(--cyan);
+  font-weight: 700;
 }
+
+/* ── MARKET PARAGRAPH ── */
+.market-intro {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  line-height: 1.65;
+}
+.market-intro strong { color: var(--text-primary); }
+
+/* ── CAPITAL CALLOUT ── */
+.capital-callout {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(0,245,212,0.06), rgba(16,185,129,0.04));
+  border: 1px solid rgba(0,245,212,0.15);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+.capital-callout strong { color: var(--cyan); font-family: var(--font-mono); }
 
 /* ── FOOTER ── */
 .footer {
-  background: #f8fafc;
-  border-top: 1px solid #e2e8f0;
-  padding: 10px 28px;
+  background: rgba(6,12,24,0.8);
+  border-top: 1px solid var(--border);
+  padding: 11px 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 11.5px;
-  color: #64748b;
+  color: var(--text-muted);
+  position: relative;
 }
-.footer strong { color: #0A1929; }
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  opacity: 0.2;
+}
+.footer strong { color: var(--text-secondary); font-weight: 500; }
+.footer .badge {
+  background: var(--cyan-dim);
+  color: var(--cyan);
+  border: 1px solid rgba(0,245,212,0.2);
+  border-radius: 5px;
+  padding: 2px 9px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+}
+
+/* ── GLOW SEPARATOR ── */
+.glow-sep {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--border-hover) 50%, transparent 100%);
+  margin: 10px 0;
+}
+
+/* Second block-title inside a block */
+.block-title + .block-title,
+.block-title.inner { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
+
 </style>
 </head>
 <body>
@@ -248,7 +477,7 @@ ul li::before {
   <!-- HEADER -->
   <div class="header">
     <div class="logo-badge">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><circle cx="19" cy="5" r="3" fill="#0A1929" stroke="#0A1929"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><circle cx="19" cy="5" r="3" fill="#060C18" stroke="#060C18"/></svg>
       GMS
     </div>
     <div class="header-meta">
@@ -271,7 +500,7 @@ ul li::before {
     </div>
     <div class="team-stat">
       <div class="team-stat-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#00C9A7" stroke-width="2"><circle cx="17" cy="21" r="1"/><circle cx="7" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#00F5D4" stroke-width="2"><circle cx="17" cy="21" r="1"/><circle cx="7" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
       </div>
       <div>
         <div class="ts-label">Hardware</div>
@@ -280,7 +509,7 @@ ul li::before {
     </div>
     <div class="team-stat">
       <div class="team-stat-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#00C9A7" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#00F5D4" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
       </div>
       <div>
         <div class="ts-label">Stage</div>
@@ -289,7 +518,7 @@ ul li::before {
     </div>
     <div class="team-stat">
       <div class="team-stat-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#00C9A7" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#00F5D4" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
       </div>
       <div>
         <div class="ts-label">Software</div>
@@ -298,7 +527,7 @@ ul li::before {
     </div>
     <div class="team-stat">
       <div class="team-stat-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#00C9A7" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#00F5D4" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
       </div>
       <div>
         <div class="ts-label">Mercado objetivo</div>
@@ -316,7 +545,7 @@ ul li::before {
       <div class="block">
         <div class="block-title">
           <div class="icon-box alert">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
           </div>
           Problem
         </div>
@@ -331,7 +560,7 @@ ul li::before {
       <div class="block">
         <div class="block-title">
           <div class="icon-box teal">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           </div>
           Value Proposition
         </div>
@@ -346,7 +575,7 @@ ul li::before {
       <div class="block">
         <div class="block-title">
           <div class="icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
           </div>
           Business Model
         </div>
@@ -366,7 +595,7 @@ ul li::before {
       <div class="block">
         <div class="block-title">
           <div class="icon-box teal">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           Solution
         </div>
@@ -382,7 +611,7 @@ ul li::before {
       <div class="block">
         <div class="block-title">
           <div class="icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
           Go To Market (Plan Inicial)
         </div>
@@ -398,7 +627,7 @@ ul li::before {
       <div class="block">
         <div class="block-title">
           <div class="icon-box amber">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
           </div>
           Why Now?
         </div>
@@ -418,11 +647,11 @@ ul li::before {
       <div class="block">
         <div class="block-title">
           <div class="icon-box teal">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
           </div>
           Market Opportunity
         </div>
-        <p style="font-size:12px; color:#334155; margin-bottom:8px;">El mercado global de monitoreo industrial de gases supera los <strong>$4.5B USD</strong> en 2024, con crecimiento proyectado al <strong>7.2% CAGR</strong> hasta 2030. En Colombia, más de 12,000 empresas industriales están obligadas por ley a tener sistemas de monitoreo de gases.</p>
+        <p class="market-intro">El mercado global de monitoreo industrial de gases supera los <strong>$4.5B USD</strong> en 2024, con crecimiento proyectado al <strong>7.2% CAGR</strong> hasta 2030. En Colombia, más de 12,000 empresas industriales están obligadas por ley a tener sistemas de monitoreo de gases.</p>
         <div class="metric-row">
           <div class="metric-card">
             <div class="metric-label">TAM Global</div>
@@ -452,7 +681,7 @@ ul li::before {
       <div class="block">
         <div class="block-title">
           <div class="icon-box teal">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
           </div>
           Early Validation
         </div>
@@ -460,39 +689,59 @@ ul li::before {
         <div class="val-item"><div class="val-check">✓</div>Dashboard web en tiempo real con alertas configurables.</div>
         <div class="val-item"><div class="val-check">✓</div>Ruta autónoma programable y demostrable en campo.</div>
         <div class="val-item"><div class="val-check">✓</div>Interés inicial de empresas del sector logístico e industrial.</div>
-        <div class="val-item" style="border:none"><div class="val-check">✓</div>Landing page y estrategia omnicanal estructurada y activa.</div>
+        <div class="val-item"><div class="val-check">✓</div>Landing page y estrategia omnicanal estructurada y activa.</div>
       </div>
 
       <div class="block">
         <div class="block-title">
           <div class="icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
           </div>
           Financial Projection (Estimado)
         </div>
         <div class="finance-row"><span class="finance-year">Año 1</span><span class="finance-val">USD 45K</span></div>
         <div class="finance-row"><span class="finance-year">Año 2</span><span class="finance-val">USD 180K</span></div>
-        <div class="finance-row" style="margin-bottom:10px;"><span class="finance-year">Año 3</span><span class="finance-val">USD 520K</span></div>
+        <div class="finance-row"><span class="finance-year">Año 3</span><span class="finance-val">USD 520K</span></div>
 
-        <div class="block-title" style="margin-top:10px;">
+        <div class="glow-sep"></div>
+
+        <div class="block-title" style="margin-bottom:10px;">
           <div class="icon-box amber">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
           </div>
           Use of Funds
         </div>
         <div class="funds-bar-wrap">
-          <div class="funds-row"><div class="funds-label">Desarrollo de hardware</div><div class="funds-track"><div class="funds-fill" style="width:40%; background:#00C9A7;"></div></div><div class="funds-pct">40%</div></div>
-          <div class="funds-row"><div class="funds-label">Software y plataforma</div><div class="funds-track"><div class="funds-fill" style="width:30%; background:#3B82F6;"></div></div><div class="funds-pct">30%</div></div>
-          <div class="funds-row"><div class="funds-label">Validación y piloto</div><div class="funds-track"><div class="funds-fill" style="width:20%; background:#FFB703;"></div></div><div class="funds-pct">20%</div></div>
-          <div class="funds-row"><div class="funds-label">Marketing omnicanal</div><div class="funds-track"><div class="funds-fill" style="width:10%; background:#E63946;"></div></div><div class="funds-pct">10%</div></div>
+          <div class="funds-row">
+            <div class="funds-label">Desarrollo de hardware</div>
+            <div class="funds-track"><div class="funds-fill c1" style="width:40%"></div></div>
+            <div class="funds-pct">40%</div>
+          </div>
+          <div class="funds-row">
+            <div class="funds-label">Software y plataforma</div>
+            <div class="funds-track"><div class="funds-fill c2" style="width:30%"></div></div>
+            <div class="funds-pct">30%</div>
+          </div>
+          <div class="funds-row">
+            <div class="funds-label">Validación y piloto</div>
+            <div class="funds-track"><div class="funds-fill c3" style="width:20%"></div></div>
+            <div class="funds-pct">20%</div>
+          </div>
+          <div class="funds-row">
+            <div class="funds-label">Marketing omnicanal</div>
+            <div class="funds-track"><div class="funds-fill c4" style="width:10%"></div></div>
+            <div class="funds-pct">10%</div>
+          </div>
         </div>
-        <div style="margin-top:8px; font-size:11px; color:#0A1929;"><strong>Capital buscado:</strong> USD 80K (pre-seed)</div>
+        <div class="capital-callout">
+          <strong>Capital buscado:</strong> <span style="color:var(--text-secondary)">USD 80K (pre-seed)</span>
+        </div>
       </div>
 
       <div class="block">
         <div class="block-title">
           <div class="icon-box alert">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           </div>
           Risks &amp; Challenges
         </div>
@@ -508,7 +757,7 @@ ul li::before {
 
   <!-- FOOTER -->
   <div class="footer">
-    <span>ℹ <strong>Status:</strong> Ideación</span>
+    <span><span class="badge">STATUS</span> &nbsp;<strong>Ideación</strong></span>
     <span><strong>Next Milestone:</strong> Piloto en empresa industrial real + validación de unidad económica</span>
   </div>
 
