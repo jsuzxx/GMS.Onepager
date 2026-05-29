@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GMS — One Pager</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #f0f4f8;
+  color: #1a2b3c;
+  font-size: 13px;
+  line-height: 1.45;
+  padding: 24px;
+}
+.page {
+  background: #fff;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.1);
+}
+
+/* ── HEADER ── */
+.header {
+  background: #0A1929;
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 2px solid #00C9A7;
+}
+.logo-badge {
+  background: #00C9A7;
+  color: #0A1929;
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  padding: 6px 16px;
+  border-radius: 6px;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.logo-badge svg { width: 18px; height: 18px; }
+.header-meta {
+  color: rgba(244,247,246,0.7);
+  font-size: 12.5px;
+}
+.header-meta strong { color: #F4F7F6; }
+.sep { margin: 0 8px; opacity: 0.3; }
+
+/* ── TEAM ROW ── */
+.team-row {
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.team-member {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00C9A7, #0A1929);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.member-name { font-weight: 600; font-size: 14px; color: #0A1929; }
+.member-role { font-size: 11px; color: #64748b; }
+.team-stat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 24px;
+  border-left: 1px solid #e2e8f0;
+}
+.team-stat-icon {
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  background: rgba(0,201,167,0.1);
+  display: flex; align-items: center; justify-content: center;
+}
+.team-stat-icon svg { width: 16px; height: 16px; color: #00C9A7; }
+.ts-label { font-size: 11px; color: #64748b; }
+.ts-value { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; color: #0A1929; }
+
+/* ── GRID ── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 0;
+}
+.col { border-right: 1px solid #e2e8f0; }
+.col:last-child { border-right: none; }
+
+.block {
+  padding: 16px 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+.block:last-child { border-bottom: none; }
+
+.block-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0A1929;
+  margin-bottom: 10px;
+}
+.icon-box {
+  width: 26px; height: 26px;
+  border-radius: 6px;
+  background: #0A1929;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.icon-box.teal { background: #00C9A7; }
+.icon-box.amber { background: #FFB703; }
+.icon-box.alert { background: #E63946; }
+.icon-box svg { width: 13px; height: 13px; }
+
+ul { padding-left: 0; list-style: none; }
+ul li {
+  padding: 3px 0 3px 14px;
+  position: relative;
+  color: #334155;
+  font-size: 12px;
+  line-height: 1.5;
+}
+ul li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 10px;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: #00C9A7;
+}
+
+/* ── METRIC CARD ── */
+.metric-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.metric-card {
+  flex: 1;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 8px 10px;
+}
+.metric-label { font-size: 10px; color: #64748b; font-family: 'JetBrains Mono', monospace; margin-bottom: 2px; }
+.metric-value { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: #0A1929; }
+.metric-sub { font-size: 10px; color: #94a3b8; }
+
+/* ── FINANCE ── */
+.finance-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 12px;
+}
+.finance-row:last-child { border-bottom: none; }
+.finance-year { color: #64748b; }
+.finance-val { font-family: 'JetBrains Mono', monospace; font-weight: 500; color: #0A1929; }
+
+.tag {
+  display: inline-block;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(0,201,167,0.1);
+  color: #00957A;
+  font-weight: 500;
+  margin: 2px 2px 2px 0;
+}
+.tag.amber { background: rgba(255,183,3,0.12); color: #B45309; }
+.tag.dark { background: #0A1929; color: #00C9A7; }
+
+.funds-bar-wrap { margin-top: 8px; }
+.funds-row { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+.funds-label { font-size: 11px; color: #64748b; width: 130px; flex-shrink: 0; }
+.funds-track { flex: 1; height: 5px; background: #f1f5f9; border-radius: 99px; }
+.funds-fill { height: 100%; border-radius: 99px; background: #00C9A7; }
+.funds-pct { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #0A1929; width: 30px; text-align: right; }
+
+/* ── VALIDATION ── */
+.val-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 5px 0;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 12px;
+  color: #334155;
+}
+.val-check {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: rgba(0,201,167,0.15);
+  border: 1px solid #00C9A7;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+  font-size: 9px;
+  color: #00957A;
+}
+
+/* ── FOOTER ── */
+.footer {
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  padding: 10px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11.5px;
+  color: #64748b;
+}
+.footer strong { color: #0A1929; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><circle cx="19" cy="5" r="3" fill="#0A1929" stroke="#0A1929"/></svg>
+      GMS
+    </div>
+    <div class="header-meta">
+      <strong>Sector:</strong> Seguridad Industrial &amp; IoT
+      <span class="sep">|</span>
+      <strong>Vertical:</strong> Monitoreo Autónomo de Gases
+      <span class="sep">|</span>
+      <strong>Stage:</strong> Prototipo Funcional
+    </div>
+  </div>
+
+  <!-- TEAM ROW -->
+  <div class="team-row">
+    <div class="team-member">
+      <div class="avatar">JG</div>
+      <div>
+        <div class="member-name">Equipo GMS</div>
+        <div class="member-role">Ingeniería de Sistemas · Universidad</div>
+      </div>
+    </div>
+    <div class="team-stat">
+      <div class="team-stat-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#00C9A7" stroke-width="2"><circle cx="17" cy="21" r="1"/><circle cx="7" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      </div>
+      <div>
+        <div class="ts-label">Hardware</div>
+        <div class="ts-value">ESP32</div>
+      </div>
+    </div>
+    <div class="team-stat">
+      <div class="team-stat-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#00C9A7" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <div>
+        <div class="ts-label">Stage</div>
+        <div class="ts-value">Prototipo</div>
+      </div>
+    </div>
+    <div class="team-stat">
+      <div class="team-stat-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#00C9A7" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <div>
+        <div class="ts-label">Software</div>
+        <div class="ts-value">Web App</div>
+      </div>
+    </div>
+    <div class="team-stat">
+      <div class="team-stat-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#00C9A7" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div>
+        <div class="ts-label">Mercado objetivo</div>
+        <div class="ts-value">Industrial B2B</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="grid">
+
+    <!-- COL 1 -->
+    <div class="col">
+
+      <div class="block">
+        <div class="block-title">
+          <div class="icon-box alert">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          Problem
+        </div>
+        <ul>
+          <li>Los sensores fijos solo monitorean un punto; zonas críticas quedan sin cobertura entre turnos.</li>
+          <li>La detección tardía de gases peligrosos (CO, CO₂, CH₄) expone a operarios a riesgos reales.</li>
+          <li>Los datos no tienen contexto espacial: se sabe "cuánto" gas hay, pero no "dónde exactamente".</li>
+          <li>Cubrir toda una planta con sensores fijos tiene un costo de infraestructura muy elevado.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-title">
+          <div class="icon-box teal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          Value Proposition
+        </div>
+        <ul>
+          <li>Único sistema que recorre la planta de forma autónoma, mide en cada punto y mapea los gases.</li>
+          <li>Cobertura dinámica: una unidad móvil reemplaza múltiples sensores fijos en distintas zonas.</li>
+          <li>Datos con coordenadas — heatmap de gases por zona, no solo una lista de valores.</li>
+          <li>Alertas en tiempo real antes de que el nivel de peligro llegue a los operarios.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-title">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          Business Model
+        </div>
+        <ul>
+          <li>Venta de hardware (carrito GMS) + licencia de software por instalación.</li>
+          <li>Suscripción mensual a la plataforma cloud: dashboard, alertas y reportes históricos.</li>
+          <li>Servicios adicionales: configuración de rutas, mantenimiento preventivo y capacitación.</li>
+          <li>Modelo B2B: empresas industriales, plantas de manufactura, almacenes y sector petroquímico.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- COL 2 -->
+    <div class="col">
+
+      <div class="block">
+        <div class="block-title">
+          <div class="icon-box teal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          Solution
+        </div>
+        <ul>
+          <li>Carrito autónomo con ESP32 que recorre rutas programadas y se detiene en puntos definidos.</li>
+          <li>Sensores multi-gas: CO₂, CO, CH₄, GLP, NH₃ — datos precisos en cada parada.</li>
+          <li>Conectividad WiFi: cada lectura se sube en tiempo real a la plataforma web.</li>
+          <li>Dashboard con historial, alertas configurables y mapeo espacial de concentraciones por zona.</li>
+          <li>Configuración sin código: rutas y umbrales definibles desde la interfaz web.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-title">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          Go To Market (Plan Inicial)
+        </div>
+        <ul>
+          <li>Piloto gratuito de 30 días con 3 empresas industriales de la región Caribe.</li>
+          <li>Modelo B2B con foco inicial en PYMEs de manufactura y almacenamiento.</li>
+          <li>Validación de unidad económica en los primeros 12 meses de operación.</li>
+          <li>Alianzas con ARL y empresas de SST (Salud y Seguridad en el Trabajo) como canal de entrada.</li>
+          <li>Estrategia digital omnicanal: LinkedIn, TikTok, Instagram + landing page de captación.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-title">
+          <div class="icon-box amber">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          Why Now?
+        </div>
+        <ul>
+          <li>Resolución 0312 de MinTrabajo exige sistemas de monitoreo activo en espacios confinados.</li>
+          <li>El mercado de sensores IoT industriales crece al 18% anual en LATAM (2024–2028).</li>
+          <li>ESP32 y sensores MQ han bajado de precio un 40% en 3 años — viabilidad de hardware real.</li>
+          <li>Las industrias post-pandemia priorizan la seguridad operacional y la automatización.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- COL 3 -->
+    <div class="col">
+
+      <div class="block">
+        <div class="block-title">
+          <div class="icon-box teal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          Market Opportunity
+        </div>
+        <p style="font-size:12px; color:#334155; margin-bottom:8px;">El mercado global de monitoreo industrial de gases supera los <strong>$4.5B USD</strong> en 2024, con crecimiento proyectado al <strong>7.2% CAGR</strong> hasta 2030. En Colombia, más de 12,000 empresas industriales están obligadas por ley a tener sistemas de monitoreo de gases.</p>
+        <div class="metric-row">
+          <div class="metric-card">
+            <div class="metric-label">TAM Global</div>
+            <div class="metric-value">$4.5B</div>
+            <div class="metric-sub">USD · 2024</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">CAGR</div>
+            <div class="metric-value">7.2%</div>
+            <div class="metric-sub">2024–2030</div>
+          </div>
+        </div>
+        <div class="metric-row">
+          <div class="metric-card">
+            <div class="metric-label">Empresas Col.</div>
+            <div class="metric-value">12K+</div>
+            <div class="metric-sub">Obligadas por ley</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">SAM Inicial</div>
+            <div class="metric-value">~500</div>
+            <div class="metric-sub">PYMEs Caribe</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-title">
+          <div class="icon-box teal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          Early Validation
+        </div>
+        <div class="val-item"><div class="val-check">✓</div>Prototipo funcional con ESP32 + sensores MQ operativo.</div>
+        <div class="val-item"><div class="val-check">✓</div>Dashboard web en tiempo real con alertas configurables.</div>
+        <div class="val-item"><div class="val-check">✓</div>Ruta autónoma programable y demostrable en campo.</div>
+        <div class="val-item"><div class="val-check">✓</div>Interés inicial de empresas del sector logístico e industrial.</div>
+        <div class="val-item" style="border:none"><div class="val-check">✓</div>Landing page y estrategia omnicanal estructurada y activa.</div>
+      </div>
+
+      <div class="block">
+        <div class="block-title">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          Financial Projection (Estimado)
+        </div>
+        <div class="finance-row"><span class="finance-year">Año 1</span><span class="finance-val">USD 45K</span></div>
+        <div class="finance-row"><span class="finance-year">Año 2</span><span class="finance-val">USD 180K</span></div>
+        <div class="finance-row" style="margin-bottom:10px;"><span class="finance-year">Año 3</span><span class="finance-val">USD 520K</span></div>
+
+        <div class="block-title" style="margin-top:10px;">
+          <div class="icon-box amber">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          </div>
+          Use of Funds
+        </div>
+        <div class="funds-bar-wrap">
+          <div class="funds-row"><div class="funds-label">Desarrollo de hardware</div><div class="funds-track"><div class="funds-fill" style="width:40%; background:#00C9A7;"></div></div><div class="funds-pct">40%</div></div>
+          <div class="funds-row"><div class="funds-label">Software y plataforma</div><div class="funds-track"><div class="funds-fill" style="width:30%; background:#3B82F6;"></div></div><div class="funds-pct">30%</div></div>
+          <div class="funds-row"><div class="funds-label">Validación y piloto</div><div class="funds-track"><div class="funds-fill" style="width:20%; background:#FFB703;"></div></div><div class="funds-pct">20%</div></div>
+          <div class="funds-row"><div class="funds-label">Marketing omnicanal</div><div class="funds-track"><div class="funds-fill" style="width:10%; background:#E63946;"></div></div><div class="funds-pct">10%</div></div>
+        </div>
+        <div style="margin-top:8px; font-size:11px; color:#0A1929;"><strong>Capital buscado:</strong> USD 80K (pre-seed)</div>
+      </div>
+
+      <div class="block">
+        <div class="block-title">
+          <div class="icon-box alert">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          Risks &amp; Challenges
+        </div>
+        <ul>
+          <li>Escalabilidad del hardware: producción en volumen requiere alianza con manufactura.</li>
+          <li>Adopción en empresas con procesos rígidos de compra y largos ciclos de decisión.</li>
+          <li>Educación del mercado sobre ventajas del monitoreo móvil vs. sensores fijos tradicionales.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div><!-- /grid -->
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>ℹ <strong>Status:</strong> Prototipo Funcional</span>
+    <span><strong>Next Milestone:</strong> Piloto en empresa industrial real + validación de unidad económica</span>
+  </div>
+
+</div>
+</body>
+</html>
